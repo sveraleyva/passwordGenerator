@@ -28,7 +28,7 @@ function generatePassword() {
     userChoices = userChoices.concat(upperCase)
   }
   let hasNumbers = window.confirm("Do you want your password to have numbers?");
-  if (hasNumbers){
+  if (hasNumbers) {
     index = getRandomIndex(0, numbers.length);
     password.push(numbers[index]);
     userChoices = userChoices.concat(numbers);
@@ -47,6 +47,7 @@ function generatePassword() {
 
   newPasswordLength = passwordLength - password.length;
   
+  // add a random character to the rest of the password from the user choices array
   for (let i = 0; i < newPasswordLength; i++) {
     index = getRandomIndex(0, userChoices.length);
     password.push(userChoices[index])
@@ -60,7 +61,6 @@ function getRandomIndex(min, max){
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
 }
-
 
 // Get references to the #generate element
 let generateBtn = document.querySelector("#generate");
